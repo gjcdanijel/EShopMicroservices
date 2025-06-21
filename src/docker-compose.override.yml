@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  catalogdb:
+    container_name: catalogdb
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=CatalogDb
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_catalog:/var/lib/postgresql/data/
+
+  catalog.api:
+    build:
+      context: .
+      dockerfile: Services/Catalog/Catalog.API/Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - catalogdb
+
+volumes:
+  postgres_catalog:
