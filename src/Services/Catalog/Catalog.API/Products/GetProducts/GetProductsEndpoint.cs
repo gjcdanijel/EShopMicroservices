@@ -23,4 +23,3 @@ public class GetProductsEndpoint : ICarterModule
 		.WithDescription("Get Products");
 	}
 }
-
