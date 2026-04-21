@@ -416,3 +416,20 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+## JetBrains Rider
+
+# User-specific files
+**/.idea/
+*.sln.iml
+
+# Rider build output
+**/_ReSharper*/
+*.DotSettings.user
+
+# Rider temp files
+*.rider.vbproj.user
+
+# JetBrains Rider additional
+*.sln.iml
+*.DotSettings.user
