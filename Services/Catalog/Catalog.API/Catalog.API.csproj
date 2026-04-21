@@ -17,4 +17,8 @@
       <ProjectReference Include="..\..\..\src\Common\Common\Common.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Carter" Version="10.0.0" />
+    </ItemGroup>
+
 </Project>
