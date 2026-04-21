@@ -13,4 +13,8 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\src\Common\Common\Common.csproj" />
+    </ItemGroup>
+
 </Project>
