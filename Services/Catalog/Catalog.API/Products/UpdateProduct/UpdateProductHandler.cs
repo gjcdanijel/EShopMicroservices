@@ -1,5 +1,6 @@
 using Catalog.API.Models;
 using Common.CQRS;
+using FluentValidation;
 using Marten;
 
 namespace Catalog.API.Products.UpdateProduct;
@@ -11,7 +12,22 @@ public record UpdateProductCommand(Guid Id,
     string ImageFile,
     decimal Price) : ICommand<UpdateProductResult>;
 
-public record UpdateProductResult(bool Success);
+public record UpdateProductResult(bool IsSuccess);
+
+public class UpdateProductCommandValidator : AbstractValidator<UpdateProductCommand>
+{
+    public UpdateProductCommandValidator()
+    {
+        RuleFor(command => command.Id).NotNull().WithMessage("Product ID is required");
+
+        RuleFor(command => command.Name)
+            .NotNull().WithMessage("Product Name is required")
+            .Length(2, 150).WithMessage("Price must be grater than 0");
+        
+        RuleFor(command => command.Price)
+            .GreaterThan(0).WithMessage("Price must be grater than 0");
+    }
+}
 internal class UpdateProductCommandHandler
 (IDocumentSession session,  ILogger<UpdateProductCommandHandler> logger)
 : ICommandHandler<UpdateProductCommand, UpdateProductResult>

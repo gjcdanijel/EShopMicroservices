@@ -19,6 +19,7 @@
 
     <ItemGroup>
       <PackageReference Include="Carter" Version="10.0.0" />
+      <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
       <PackageReference Include="Marten" Version="8.32.0" />
     </ItemGroup>
 
