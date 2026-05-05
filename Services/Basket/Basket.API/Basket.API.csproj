@@ -19,6 +19,7 @@
 
     <ItemGroup>
       <PackageReference Include="Carter" Version="10.0.0" />
+      <PackageReference Include="Marten" Version="8.34.2" />
     </ItemGroup>
 
 </Project>
