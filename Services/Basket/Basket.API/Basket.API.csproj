@@ -10,14 +10,11 @@
     <ItemGroup>
         <ProjectReference Include="..\..\..\src\Common\Common\Common.csproj"/>
     </ItemGroup>
-   
-    <ItemGroup>
-        <Content Include="..\..\..\src\.dockerignore">
-            <Link>.dockerignore</Link>
-        </Content>
-    </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="9.0.0" />
+      <PackageReference Include="AspNetCore.HealthChecks.Redis" Version="9.0.0" />
+      <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="9.0.0" />
       <PackageReference Include="Carter" Version="10.0.0" />
       <PackageReference Include="Marten" Version="8.34.2" />
       <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="10.0.7" />

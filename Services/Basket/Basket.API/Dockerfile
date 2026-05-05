@@ -8,6 +8,7 @@ FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["../Services/Basket/Basket.API/Basket.API.csproj", "../Services/Basket/Basket.API/"]
+COPY ["Common/Common/Common.csproj", "Common/Common/"]
 RUN dotnet restore "../Services/Basket/Basket.API/Basket.API.csproj"
 COPY . .
 WORKDIR "/src/../Services/Basket/Basket.API"
