@@ -2,6 +2,7 @@ using Basket.API.Data;
 using Basket.API.Models;
 using Carter;
 using Common.Behaviors;
+using Common.Exceptions.Handler;
 using Marten;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,10 +24,12 @@ builder.Services.AddMarten(opts =>
 }).UseLightweightSessions();
 
 builder.Services.AddScoped<IBasketRepository, BasketRepository>();
+builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 
 var app = builder.Build();
 
 // Configure HTTP 
 app.MapCarter();
+app.UseExceptionHandler(options => { });
 
 app.Run();
