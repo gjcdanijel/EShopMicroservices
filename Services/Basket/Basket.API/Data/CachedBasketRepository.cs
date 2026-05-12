@@ -23,16 +23,16 @@ public class CachedBasketRepository(IBasketRepository repository, IDistributedCa
     public async Task<ShoppingCart> StoreBasket(ShoppingCart basket, CancellationToken cancellationToken = default)
     {
         await repository.StoreBasket(basket, cancellationToken);
-        
+
         await cache.SetStringAsync(basket.UserName, JsonSerializer.Serialize(basket), cancellationToken);
-        
+
         return basket;
     }
 
     public async Task<bool> DeleteBasket(string userName, CancellationToken cancellationToken = default)
     {
         await repository.DeleteBasket(userName, cancellationToken);
-        
+
         await cache.RefreshAsync(userName, cancellationToken);
 
         return true;
